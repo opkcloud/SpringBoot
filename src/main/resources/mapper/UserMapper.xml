@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pancm.dao.UserDao" >
+	<resultMap type="com.pancm.pojo.User" id="BaseResultMap">
+		<id column="id" property="id" jdbcType="INTEGER"/>
+		<result column="name" property="name" jdbcType="VARCHAR"/>
+		<result column="age" property="age" jdbcType="INTEGER"/>
+	</resultMap>
+	
+	<select id="findByName" resultMap="BaseResultMap">
+		SELECT id,name,age FROM t_user where name=#{userName}
+	</select>
+
+	<select id="findAll" resultType="com.pancm.pojo.User">
+		SELECT id,name,age FROM t_user
+	</select>
+</mapper>
