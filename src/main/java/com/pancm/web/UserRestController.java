@@ -1,6 +1,8 @@
 package com.pancm.web;
 
 import java.util.List;
+
+import com.pancm.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +31,17 @@ public class UserRestController {
  
 	@ApiOperation(value = "新增用户信息", httpMethod = "POST", notes = "新增用户信息")
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    public boolean addUser(@RequestBody User user) {
-    	System.out.println("开始新增...");
-        return userService.addUser(user);
+    public JsonResult addUser(@RequestBody User user) {
+	    JsonResult result = new JsonResult();
+
+        boolean flag = userService.addUser(user);
+        if (flag) {
+            System.out.println("开始新增...");
+            result.setSuccess(true);
+            result.setMessage("新增成功");
+        }
+
+        return result;
     }
     
 	@ApiOperation(value = "更新用户信息", httpMethod = "PUT", notes = "更新用户信息")
