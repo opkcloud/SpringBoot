@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 
-
+/**
+ * url: http://localhost:8083/swagger-ui.html#/
+ */
 @SpringBootApplication
 public class App 
 {
