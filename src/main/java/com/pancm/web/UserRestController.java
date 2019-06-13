@@ -20,7 +20,6 @@ import io.swagger.annotations.ApiOperation;
 * Version:1.0.0  
 * @author pancm
 * @date 2018年3月19日
-* url: http://localhost:8083/swagger-ui.html#/
  */
 @RestController
 @RequestMapping(value = "/api")
