@@ -6,24 +6,26 @@ package com.pancm.util;
  * @Description: com.pancm.util
  * @version: 1.0
  */
-public class JsonResult {
+public class JsonResult<T> {
 
     private boolean success;
+    private String code;
     private String message;
-
-    public boolean isSuccess() {
-        return success;
-    }
+    private T data;
 
     public void setSuccess(boolean success) {
         this.success = success;
     }
 
-    public String getMessage() {
-        return message;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 }
