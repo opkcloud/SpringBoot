@@ -2,7 +2,10 @@ package com.pancm.service.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.pancm.dao.UserDao;
@@ -20,9 +23,11 @@ import com.pancm.service.UserService;
  */
 @Service
 public class UserServiceImpl implements UserService {
+
+	private static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
 	@Autowired
     private UserDao userDao;
-	
 	
 	@Override
 	public boolean addUser(User user) {
@@ -64,7 +69,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Async("asyncServiceExecutor")
 	public User findUserByName(String userName) {
+		logger.info("线程执行");
 		return userDao.findByName(userName);
 	}
 
