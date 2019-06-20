@@ -67,11 +67,7 @@ public class UserRestController {
     
 	@ApiOperation(value = "查询所有用户信息", httpMethod = "GET", notes = "查询所有用户信息")
     @RequestMapping(value = "/userAll", method = RequestMethod.GET)
-    public JsonResult findByUserAge() {
-    	System.out.println("开始查询所有数据...");
-    	JsonResult result = new JsonResult();
-    	result.setSuccess(true);
-    	result.setData(userService.findAll());
-        return result;
+    public List<User> findByUserAge() {
+        return userService.findAll();
     }
 }
