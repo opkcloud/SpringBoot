@@ -52,5 +52,10 @@ public interface UserDao {
      */
 //    @Select("SELECT id,name,age FROM t_user")     
     List<User> findAll();
+
+    @Select("SELECT name FROM t_user where id = #{id}")
+    String findUserById(int id);
+
+	void insertInfoBatch(List<User> list);
     
 }
