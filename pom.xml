@@ -17,61 +17,85 @@
   </properties>
   
    <parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.9.RELEASE</version>
-		<relativePath/> 
-	</parent>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-parent</artifactId>
+       <version>1.5.9.RELEASE</version>
+       <relativePath/>
+   </parent>
 	
   <dependencies>
     
       <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
         
         
       <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-	</dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-test</artifactId>
+          <scope>test</scope>
+      </dependency>
 	
-	 <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional> 
-        </dependency>  
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-devtools</artifactId>
+          <optional>true</optional>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-jpa</artifactId>
+      </dependency>
+      <!-- Spring Boot Mybatis 依赖 -->
+      <dependency>
+          <groupId>org.mybatis.spring.boot</groupId>
+          <artifactId>mybatis-spring-boot-starter</artifactId>
+          <version>${mybatis-spring-boot}</version>
+      </dependency>
+      <!-- MySQL 连接驱动依赖 -->
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+      </dependency>
         
-        
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-          <!-- Spring Boot Mybatis 依赖 -->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis-spring-boot}</version>
-        </dependency>
-        <!-- MySQL 连接驱动依赖 -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        
-        <!-- swagger -->
-	    <dependency>
-	        <groupId>io.springfox</groupId>
-	        <artifactId>springfox-swagger2</artifactId>
-	        <version>2.5.0</version>
-	    </dependency>
-	    <!-- swagger-ui -->
-	    <dependency>
-	        <groupId>io.springfox</groupId>
-	        <artifactId>springfox-swagger-ui</artifactId>
-	        <version>2.5.0</version>
-	    </dependency>
-        
+      <!-- swagger -->
+      <dependency>
+          <groupId>io.springfox</groupId>
+          <artifactId>springfox-swagger2</artifactId>
+          <version>2.5.0</version>
+      </dependency>
+      <!-- swagger-ui -->
+      <dependency>
+          <groupId>io.springfox</groupId>
+          <artifactId>springfox-swagger-ui</artifactId>
+          <version>2.5.0</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi-ooxml</artifactId>
+          <version>3.14-beta1</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi-ooxml-schemas</artifactId>
+          <version>3.14-beta1</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.poi</groupId>
+          <artifactId>poi</artifactId>
+          <version>3.14-beta1</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.httpcomponents</groupId>
+          <artifactId>httpclient</artifactId>
+          <version>4.5.2</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-thymeleaf</artifactId>
+      </dependency>
   </dependencies>
 </project>
