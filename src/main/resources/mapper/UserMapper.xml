@@ -7,7 +7,7 @@
 		<result column="name" property="name" jdbcType="VARCHAR"/>
 		<result column="age" property="age" jdbcType="INTEGER"/>
 	</resultMap>
-	
+
 	<select id="findByName" resultMap="BaseResultMap">
 		SELECT id,name,age FROM t_user where name=#{userName}
 	</select>
@@ -15,4 +15,12 @@
 	<select id="findAll" resultType="com.pancm.pojo.User">
 		SELECT id,name,age FROM t_user
 	</select>
+
+	<insert id="insertInfoBatch">
+		insert into t_user(name,age) values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.name},#{item.age})
+		</foreach>
+	</insert>
+
 </mapper>
