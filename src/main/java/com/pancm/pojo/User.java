@@ -1,4 +1,7 @@
 package com.pancm.pojo;
+
+import com.pancm.util.logs.RecordAnnon;
+
 /**
  * 
 * Title: User
@@ -9,11 +12,14 @@ package com.pancm.pojo;
  */
 public class User {
 	 /** 编号 */
+	 @RecordAnnon(value = "编号")
 	 private int id;
 	 /** 姓名 */
+	 @RecordAnnon(value = "姓名")
 	 private String name;
 	 
 	 /** 年龄 */
+	 @RecordAnnon(value = "年龄")
 	 private int age;
 	 
 	 public User(){
