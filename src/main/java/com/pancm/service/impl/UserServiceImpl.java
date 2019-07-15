@@ -1,16 +1,22 @@
 package com.pancm.service.impl;
 
+import java.io.Serializable;
 import java.util.List;
 
+import com.pancm.constant.RedisLockEnum;
+import com.pancm.util.RedisDistributionLock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.pancm.dao.UserDao;
 import com.pancm.pojo.User;
 import com.pancm.service.UserService;
+
+import javax.annotation.Resource;
 
 /**
  * 
@@ -25,6 +31,9 @@ import com.pancm.service.UserService;
 public class UserServiceImpl implements UserService {
 
 	private static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
+	@Resource
+	private RedisTemplate<Serializable, Serializable> redisTemplate;
 
 	@Autowired
     private UserDao userDao;
@@ -78,5 +87,24 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> findAll() {
 		return userDao.findAll();
+//		RedisDistributionLock lock = new RedisDistributionLock(redisTemplate);
+//		Long lockTime = 0L;
+//		String name = RedisLockEnum.findAll.getName();
+//		try {
+//			lockTime = lock.lock(RedisLockEnum.findAll.getName(), name);
+//			if (lockTime == null) {
+//				logger.info(Thread.currentThread().getName() + "111111");
+//				return null;
+//			}
+//			return userDao.findAll();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			if (lockTime != null && lockTime != 0L) {
+//				lock.unLock(RedisLockEnum.findAll.getName(), lockTime, name);
+//				logger.info("222222");
+//			}
+//		}
+//		return null;
 	}
 }
