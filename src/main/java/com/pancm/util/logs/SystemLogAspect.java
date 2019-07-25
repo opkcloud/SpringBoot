@@ -205,7 +205,7 @@ public class SystemLogAspect {
         Map<String, Object> resultMap = new HashMap<String, Object>();
         Map<String, Object> chineseParams = new HashMap<String, Object>();
 
-        if (args != null || args.length == 0) {
+        if (args == null || args.length == 0) {
             return null;
         }
 
@@ -214,7 +214,7 @@ public class SystemLogAspect {
                 continue;
             }
             GsonBuilder builder = new GsonBuilder();
-            resultMap.put("", buildParams(chineseParams, builder, obj));
+            resultMap.put("参数", buildParams(chineseParams, builder, obj));
         }
         return chineseParams;
     }
@@ -222,9 +222,9 @@ public class SystemLogAspect {
     @SuppressWarnings("serial")
     private Map<String, Object> buildParams(Map<String, Object> chineseParams, GsonBuilder builder, Object dataObj) {
         if (dataObj == null) return null;
-        Field fields[] = dataObj.getClass().getDeclaredFields();
-        Method[] methods = dataObj.getClass().getDeclaredMethods();
         try {
+            Field fields[] = dataObj.getClass().getDeclaredFields();
+            Method[] methods = dataObj.getClass().getDeclaredMethods();
             for (Method method:methods) {
                 if (method.getName().startsWith("get")) {
                     Object resultObj = method.invoke(dataObj, new Object[]{});
