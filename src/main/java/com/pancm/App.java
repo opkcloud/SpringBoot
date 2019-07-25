@@ -10,6 +10,8 @@ import org.springframework.context.event.EventListener;
 /**
  * url: http://localhost:8083/swagger-ui.html#/
  * SSM架构: https://www.cnblogs.com/zyw-205520/p/4771253.html
+ * Java反射:
+ * RestTemplate: https://blog.csdn.net/yiifaa/article/details/77939282
  */
 @SpringBootApplication
 public class App 
