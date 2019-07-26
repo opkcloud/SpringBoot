@@ -14,14 +14,13 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.beans.IntrospectionException;
-import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 @RestController
 public class ExportController {
@@ -82,6 +81,24 @@ public class ExportController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            byte[] buffer = new byte[1024];
+            File file = new File("111.xlsx");
+            File zip = new File("数据.zip");
+            try {
+                ZipOutputStream zOut = new ZipOutputStream(new FileOutputStream(zip));
+                zOut.putNextEntry(new ZipEntry(file.getName()));
+                FileInputStream in = new FileInputStream(file);
+                int len = 0;
+                // 读取文件的内容,打包到zip文件
+                while ((len = in.read(buffer)) > 0) {
+                    zOut.write(buffer, 0, len);
+                }
+                zOut.closeEntry();
+                in.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
