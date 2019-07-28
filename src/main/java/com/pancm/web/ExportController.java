@@ -102,4 +102,10 @@ public class ExportController {
         }
     }
 
+    @ApiOperation(value = "压缩导出", httpMethod = "GET", notes = "压缩导出")
+    @RequestMapping("/downLoadZip")
+    public void downLoadZip(HttpServletResponse response) {
+        exportService.downLoadZip(response);
+    }
+
 }
