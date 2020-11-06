@@ -1,6 +1,6 @@
 package com.opkcloud.util;
 
-import com.opkcloud.model.ExcelBean;
+import com.opkcloud.export.bean.ExcelBean;
 import org.apache.http.client.utils.DateUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
