@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pancm.dao.OperateLoggerMapper" >
-  <resultMap id="BaseResultMap" type="com.pancm.pojo.OperateLogger" >
+<mapper namespace="com.opkcloud.dao.OperateLoggerMapper" >
+  <resultMap id="BaseResultMap" type="com.opkcloud.pojo.OperateLogger" >
     <result column="num_id" property="numId" jdbcType="VARCHAR" />
     <result column="reg_id" property="regId" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
@@ -86,7 +86,7 @@
     operate_number, operate_table, operate_key, msg, operatenape, path
   </sql>
 
-  <insert id="insert" parameterType="com.pancm.pojo.OperateLogger" >
+  <insert id="insert" parameterType="com.opkcloud.pojo.OperateLogger" >
     insert into operate_logger (num_id, reg_id, user_id, 
       organization, organization_id, user_name, 
       operate_time, terminal_id, operate_type, 
@@ -102,7 +102,7 @@
       #{operateKey,jdbcType=VARCHAR}, #{msg,jdbcType=VARCHAR}, #{operatenape,jdbcType=VARCHAR}, 
       #{path,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.pancm.pojo.OperateLogger" >
+  <insert id="insertSelective" parameterType="com.opkcloud.pojo.OperateLogger" >
     insert into operate_logger
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="numId != null" >
