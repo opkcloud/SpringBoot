@@ -1,6 +1,6 @@
 package com.opkcloud.service;
 
-import com.opkcloud.pojo.OperateLogger;
+import com.opkcloud.log.OperateLogger;
 
 public interface OperateLoggerService {
 

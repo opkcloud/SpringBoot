@@ -1,6 +1,5 @@
-package com.opkcloud.mapper;
+package com.opkcloud.log;
 
-import com.opkcloud.pojo.OperateLogger;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

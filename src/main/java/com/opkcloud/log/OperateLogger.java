@@ -1,4 +1,4 @@
-package com.opkcloud.pojo;
+package com.opkcloud.log;
 
 public class OperateLogger {
     private String numId;

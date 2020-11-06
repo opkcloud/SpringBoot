@@ -4,7 +4,7 @@
 //import com.google.gson.GsonBuilder;
 //import com.google.gson.JsonSyntaxException;
 //import com.google.gson.reflect.TypeToken;
-//import com.opkcloud.pojo.OperateLogger;
+//import com.opkcloud.log.OperateLogger;
 //import com.opkcloud.user.bean.User;
 //import com.opkcloud.service.OperateLoggerService;
 //import net.sf.json.JSONObject;
