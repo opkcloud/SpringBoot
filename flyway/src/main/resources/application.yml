@@ -1,0 +1,10 @@
+spring:
+  flyway:
+    validate-on-migrate: false
+    locations: classpath:db/migration
+
+  profiles:
+    active: dev
+
+server:
+  port: 9876
