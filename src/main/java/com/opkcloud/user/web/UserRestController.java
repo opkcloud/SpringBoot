@@ -1,4 +1,4 @@
-package com.opkcloud.web;
+package com.opkcloud.user.web;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.opkcloud.pojo.User;
-import com.opkcloud.service.UserService;
+import com.opkcloud.user.bean.User;
+import com.opkcloud.user.service.UserService;
 import io.swagger.annotations.ApiOperation;
 
 /**

@@ -1,7 +1,7 @@
 package com.opkcloud.util;
 
 import com.opkcloud.pojo.OperateLogger;
-import com.opkcloud.pojo.User;
+import com.opkcloud.user.bean.User;
 import com.opkcloud.service.OperateLoggerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

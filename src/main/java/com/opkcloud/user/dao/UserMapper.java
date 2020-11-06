@@ -1,18 +1,19 @@
-package com.opkcloud.dao;
+package com.opkcloud.user.dao;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.opkcloud.pojo.User;
+import com.opkcloud.user.bean.User;
 
 /**
  * 
-* Title: UserDao
+* Title: UserMapper
 * Description:
 * 用户数据接口 
 * Version:1.0.0  
@@ -20,7 +21,7 @@ import com.opkcloud.pojo.User;
 * @date 2018年1月9日
  */
 @Mapper
-public interface UserDao {
+public interface UserMapper extends BaseMapper<User> {
 	
 	/**
 	 * 用户数据新增

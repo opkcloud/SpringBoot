@@ -1,8 +1,8 @@
 package com.opkcloud.service.impl;
 
-import com.opkcloud.dao.UserDao;
+import com.opkcloud.user.dao.UserMapper;
 import com.opkcloud.model.ExcelBean;
-import com.opkcloud.pojo.User;
+import com.opkcloud.user.bean.User;
 import com.opkcloud.service.ExportService;
 import com.opkcloud.util.ExcelUtil;
 import org.apache.poi.ss.usermodel.*;
@@ -30,7 +30,7 @@ import java.util.zip.ZipOutputStream;
 public class ExportServiceImpl implements ExportService {
 
     @Autowired
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     @Override
     public void importExcelInfo(InputStream in, MultipartFile file, String salaryDate, Integer adminId) throws Exception {
@@ -61,17 +61,17 @@ public class ExportServiceImpl implements ExportService {
             userList.add(user);
         }
         //批量插入
-        userDao.insertInfoBatch(userList);
+        userMapper.insertInfoBatch(userList);
     }
 
     @Override
     public XSSFWorkbook exportExcelInfo(String salaryDate) throws InvocationTargetException, ClassNotFoundException, IntrospectionException, ParseException, IllegalAccessException {
         //根据条件查询数据，把数据装载到一个list中
-        List<User> list = userDao.findAll();
+        List<User> list = userMapper.findAll();
         for(int i=0;i<list.size();i++){
             //查询财务名字
             int adminId = list.get(i).getId();
-            String userName = userDao.findUserById(adminId);
+            String userName = userMapper.findUserById(adminId);
             list.get(i).setName(userName);
             list.get(i).setId(i+1);
         }
@@ -98,7 +98,7 @@ public class ExportServiceImpl implements ExportService {
 
     @Override
     public void downLoadZip(HttpServletResponse response) {
-        List<User> list = userDao.findAll();
+        List<User> list = userMapper.findAll();
 //        HttpServletResponse response;
         ServletOutputStream out = null;
         OutputStream os = null;

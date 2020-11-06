@@ -1,18 +1,17 @@
-package com.opkcloud.service.impl;
+package com.opkcloud.user.service.impl;
 
 import java.io.Serializable;
 import java.util.List;
 
+import com.opkcloud.user.dao.UserMapper;
+import com.opkcloud.user.bean.User;
+import com.opkcloud.user.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-
-import com.opkcloud.dao.UserDao;
-import com.opkcloud.pojo.User;
-import com.opkcloud.service.UserService;
 
 import javax.annotation.Resource;
 
@@ -34,13 +33,13 @@ public class UserServiceImpl implements UserService {
 	private RedisTemplate<Serializable, Serializable> redisTemplate;
 
 	@Autowired
-    private UserDao userDao;
+    private UserMapper userMapper;
 	
 	@Override
 	public boolean addUser(User user) {
 		boolean flag=false;
 		try{
-			userDao.addUser(user);
+			userMapper.addUser(user);
 			flag=true;
 		}catch(Exception e){
 			System.out.println("新增失败!");
@@ -53,7 +52,7 @@ public class UserServiceImpl implements UserService {
 	public boolean updateUser(User user) {
 		boolean flag=false;
 		try{
-			userDao.updateUser(user);
+			userMapper.updateUser(user);
 			flag=true;
 		}catch(Exception e){
 			System.out.println("修改失败!");
@@ -66,7 +65,7 @@ public class UserServiceImpl implements UserService {
 	public boolean deleteUser(int id) {
 		boolean flag=false;
 		try{
-			userDao.deleteUser(id);
+			userMapper.deleteUser(id);
 			flag=true;
 		}catch(Exception e){
 			System.out.println("删除失败!");
@@ -79,12 +78,12 @@ public class UserServiceImpl implements UserService {
 	@Async("asyncServiceExecutor")
 	public User findUserByName(String userName) {
 		logger.info("线程执行");
-		return userDao.findByName(userName);
+		return userMapper.findByName(userName);
 	}
 
 	@Override
 	public List<User> findAll() {
-		return userDao.findAll();
+		return userMapper.findAll();
 //		RedisDistributionLock lock = new RedisDistributionLock(redisTemplate);
 //		Long lockTime = 0L;
 //		String name = RedisLockEnum.findAll.getName();
@@ -94,7 +93,7 @@ public class UserServiceImpl implements UserService {
 //				logger.info(Thread.currentThread().getName() + "111111");
 //				return null;
 //			}
-//			return userDao.findAll();
+//			return userMapper.findAll();
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		} finally {

@@ -1,4 +1,4 @@
-package com.opkcloud.dao;
+package com.opkcloud.mapper;
 
 import com.opkcloud.pojo.OperateLogger;
 import org.apache.ibatis.annotations.Mapper;

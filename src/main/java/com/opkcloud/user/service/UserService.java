@@ -1,8 +1,8 @@
-package com.opkcloud.service;
+package com.opkcloud.user.service;
 
 import java.util.List;
 
-import com.opkcloud.pojo.User;
+import com.opkcloud.user.bean.User;
 
 
 /**

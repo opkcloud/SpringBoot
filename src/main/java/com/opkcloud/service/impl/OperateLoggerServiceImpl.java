@@ -1,6 +1,6 @@
 package com.opkcloud.service.impl;
 
-import com.opkcloud.dao.OperateLoggerMapper;
+import com.opkcloud.mapper.OperateLoggerMapper;
 import com.opkcloud.pojo.OperateLogger;
 import com.opkcloud.service.OperateLoggerService;
 import org.springframework.beans.factory.annotation.Autowired;

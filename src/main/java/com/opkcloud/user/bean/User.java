@@ -1,4 +1,4 @@
-package com.opkcloud.pojo;
+package com.opkcloud.user.bean;
 
 import com.opkcloud.util.logs.RecordAnnon;
 

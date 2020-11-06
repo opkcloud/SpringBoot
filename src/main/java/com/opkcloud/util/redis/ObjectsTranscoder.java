@@ -1,10 +1,11 @@
 package com.opkcloud.util.redis;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.*;
 
+@Slf4j
 public class ObjectsTranscoder {
 
     private static Logger logger = LoggerFactory.getLogger(ObjectsTranscoder.class);

@@ -3,7 +3,7 @@ package com.opkcloud.web;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.opkcloud.pojo.User;
+import com.opkcloud.user.bean.User;
 
 import io.swagger.annotations.ApiOperation;
 
