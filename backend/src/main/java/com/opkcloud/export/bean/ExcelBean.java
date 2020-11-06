@@ -1,4 +1,4 @@
-package com.opkcloud.model;
+package com.opkcloud.export.bean;
 
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import java.io.Serializable;

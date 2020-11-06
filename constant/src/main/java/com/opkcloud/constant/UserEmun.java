@@ -1,5 +1,8 @@
 package com.opkcloud.constant;
 
+import lombok.Getter;
+
+@Getter
 public enum UserEmun {
 
     USER_KEY("USER", "存在Session中的用户KEY"),
@@ -13,19 +16,4 @@ public enum UserEmun {
         this.desc = desc;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
 }

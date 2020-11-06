@@ -2,7 +2,7 @@ package com.opkcloud.export.service.impl;
 
 import com.opkcloud.export.service.ExportService;
 import com.opkcloud.user.dao.UserMapper;
-import com.opkcloud.model.ExcelBean;
+import com.opkcloud.export.bean.ExcelBean;
 import com.opkcloud.user.bean.User;
 import com.opkcloud.util.ExcelUtil;
 import org.apache.poi.ss.usermodel.*;
