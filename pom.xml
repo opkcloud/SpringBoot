@@ -5,6 +5,9 @@
         <module>backend</module>
         <module>flyway</module>
         <module>utils</module>
+        <module>swagger</module>
+        <module>distributedlock</module>
+        <module>constant</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

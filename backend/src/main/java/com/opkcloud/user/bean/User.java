@@ -1,6 +1,7 @@
 package com.opkcloud.user.bean;
 
 import com.opkcloud.util.logs.RecordAnnon;
+import lombok.Data;
 
 /**
  * 
@@ -10,6 +11,7 @@ import com.opkcloud.util.logs.RecordAnnon;
 * @author opkcloud
 * @date 2017年9月26日
  */
+@Data
 public class User {
 	 /** 编号 */
 	 @RecordAnnon(value = "编号")
@@ -21,66 +23,5 @@ public class User {
 	 /** 年龄 */
 	 @RecordAnnon(value = "年龄")
 	 private int age;
-	 
-	 public User(){
-	 }
-	 /**
-	  *  构造方法
-	  * @param id  编号
-	  * @param name  姓名
-	  */
-	public User(int id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
-
-	/**  
-	 * 获取编号  
-	 * @return id 
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**  
-	 * 设置编号  
-	 * @param id 
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**  
-	 * 获取姓名  
-	 * @return name 
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**  
-	 * 设置姓名  
-	 * @param name 
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	/**  
-	 * 获取年龄  
-	 * @return  age  
-	 */
-	public int getAge() {
-		return age;
-	}
-	/**  
-	 * 设置年龄  
-	 * @param int age  
-	 */
-	public void setAge(int age) {
-		this.age = age;
-	}
-	
-	
 
 }
