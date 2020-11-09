@@ -26,7 +26,7 @@ public class Application {
         ConfigurableEnvironment env = application.getEnvironment();
         String ip = "";
         String port = env.getProperty("server.port");
-        String path = env.getProperty("server.servlet.contest-path");
+        String path = env.getProperty("server.servlet.context-path");
         String websocketPort = env.getProperty("websocket.port");
         String envStr = env.getProperty("spring.profiles.active");
         String formatMessage = MessageFormat.format(
@@ -38,8 +38,8 @@ public class Application {
                         "WebSocket: \t\tws://{2}:{3}/websocket/\n\t" +
                         "Api doc: \t\thttp://{2}:{0}{1}/doc.html\n" +
                         "------------------------------------------------------------------",
-                port, path, ip, websocketPort, envStr.toUpperCase());
-        log.info("formatMessage");
+                port, path, ip, websocketPort == null ? "" : "", envStr != null ? envStr.toUpperCase() : "");
+        log.info(formatMessage);
     }
     
 }
