@@ -1,7 +1,10 @@
 package com.opkcloud.user.web;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.opkcloud.CommonRes;
 import com.opkcloud.user.service.UserService;
 import com.opkcloud.util.JsonResult;
 import com.opkcloud.util.logs.SystemControllerLog;
@@ -24,7 +27,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2018年3月19日
  */
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/user")
 public class UserRestController {
     @Autowired
     private UserService userService;
@@ -68,5 +71,11 @@ public class UserRestController {
     @RequestMapping(value = "/userAll", method = RequestMethod.GET)
     public List<User> findByUserAge() {
         return userService.findAll();
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public CommonRes<Object> login() {
+        String code = "20000";
+        return CommonRes.success(code);
     }
 }
