@@ -16,9 +16,9 @@
         <relativePath/>
     </parent>
 
-    <groupId>1.0.0</groupId>
+    <groupId>com.opkcloud</groupId>
     <artifactId>springboot-restful</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <properties>

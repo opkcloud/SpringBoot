@@ -22,8 +22,8 @@
 
     <parent>
         <artifactId>springboot-restful</artifactId>
-        <groupId>1.0.0</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>com.opkcloud</groupId>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>
@@ -132,23 +132,11 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>${mybatis-spring-boot}</version>
         </dependency>-->
+
         <!-- MySQL 连接驱动依赖 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
-        <!-- swagger -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.5.0</version>
-        </dependency>
-        <!-- swagger-ui -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.5.0</version>
         </dependency>
 
         <dependency>
@@ -193,10 +181,16 @@
         </dependency>
 
         <dependency>
-            <groupId>1.0.0</groupId>
+            <groupId>com.opkcloud</groupId>
             <artifactId>utils</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>1.0.0</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.opkcloud</groupId>
+            <artifactId>swagger</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
     </dependencies>

@@ -3,8 +3,13 @@ package com.opkcloud;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import springfox.documentation.spring.web.SpringfoxWebMvcConfiguration;
+
 import java.text.MessageFormat;
 
 /**
@@ -14,11 +19,13 @@ import java.text.MessageFormat;
  * RestTemplate: https://blog.csdn.net/yiifaa/article/details/77939282
  *
  * API 文档：https://blog.csdn.net/qq_38555490/article/details/98212295
+ *          https://doc.xiaominfo.com/guide/
  *
  */
 @Slf4j
 @SpringBootApplication
-public class Application {
+@ConditionalOnClass(SpringfoxWebMvcConfiguration.class)
+public class Application implements WebMvcConfigurer {
 
     public static void main( String[] args ) {
     	// 启动嵌入式的 Tomcat 并初始化 Spring 环境及其各 Spring 组件
@@ -40,6 +47,12 @@ public class Application {
                         "------------------------------------------------------------------",
                 port, path, ip, websocketPort == null ? "" : "", envStr != null ? envStr.toUpperCase() : "");
         log.info(formatMessage);
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("doc.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
     
 }

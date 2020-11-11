@@ -1,13 +1,11 @@
 package com.opkcloud.user.web;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import com.opkcloud.CommonRes;
 import com.opkcloud.user.service.UserService;
 import com.opkcloud.util.JsonResult;
 import com.opkcloud.util.logs.SystemControllerLog;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +24,7 @@ import io.swagger.annotations.ApiOperation;
  * @author opkcloud
  * @date 2018年3月19日
  */
+@Api(tags = "user")
 @RestController
 @RequestMapping(value = "/user")
 public class UserRestController {
@@ -33,7 +32,7 @@ public class UserRestController {
     private UserService userService;
 
     @SystemControllerLog(description = "1", operateName = "用户信息", operateNape = "新增用户")
-    @ApiOperation(value = "新增用户信息", httpMethod = "POST", notes = "新增用户信息")
+    @ApiOperation(value = "新增用户信息")
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public JsonResult addUser(@RequestBody User user) {
         JsonResult result = new JsonResult();
@@ -53,29 +52,43 @@ public class UserRestController {
         return userService.updateUser(user);
     }
 
-    @ApiOperation(value = "根据用户Id删除用户信息", httpMethod = "DELETE", notes = "根据用户Id删除用户信息")
+    @ApiOperation(value = "根据用户Id删除用户信息")
     @RequestMapping(value = "/deleteUser", method = RequestMethod.DELETE)
     public boolean deleteUser(@RequestParam(value = "userId", required = true) int userId) {
         System.out.println("开始删除...");
         return userService.deleteUser(userId);
     }
 
-    @ApiOperation(value = "根据名字查询用户信息", httpMethod = "GET", notes = "根据名字查询用户信息")
+    @ApiOperation(value = "根据名字查询用户信息")
     @RequestMapping(value = "/findByUserName", method = RequestMethod.GET)
     public User findByUserName(@RequestParam(value = "userName", required = true) String userName) {
         System.out.println("开始查询...");
         return userService.findUserByName(userName);
     }
 
-    @ApiOperation(value = "查询所有用户信息", httpMethod = "GET", notes = "查询所有用户信息")
+    @ApiOperation(value = "查询所有用户信息")
     @RequestMapping(value = "/userAll", method = RequestMethod.GET)
     public List<User> findByUserAge() {
         return userService.findAll();
     }
 
+    @ApiOperation(value = "用户登录")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public CommonRes<Object> login() {
         String code = "20000";
         return CommonRes.success(code);
     }
+
+    @ApiOperation(value = "用户信息")
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    public CommonRes<Object> info() {
+        String str = "{\n" +
+                "    roles: ['admin'],\n" +
+                "    introduction: 'I am a super administrator',\n" +
+                "    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',\n" +
+                "    name: 'Super Admin'\n" +
+                "  }";
+        return CommonRes.success(str);
+    }
+
 }
