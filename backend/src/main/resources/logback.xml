@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 日志输出的文件 -->
+    <property name="logfile_path" value="./logs/catalina.%d{yyyy-MM-dd}%i.log"/>
+
+    <!-- 日志输出到控制台，本地调试专用 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%yellow(%d{yyyy-MM-dd HH:mm:ss.SSS}) %red([%thread]) %highlight([%-5level]) [%logger{25}][%method][%line] ---> %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 记录日志，按天滚动打印 -->
+    <appender name="logAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${logfile_path}</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- or whenever the file size reaches 50MB -->
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread][%-5level][%class{50}][%method] %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 本地调试日志，INFO 改为 DEBUG，logAppender 改为 stdout -->
+    <root level="DEBUG">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="logAppender"/>
+    </root>
+
+    <!-- user -->
+    <appender name="userAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>./logs/user.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread][%-5level][%class{50}][%method] %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- user -->
+    <logger name="com.opkcloud.user" additivity="false">
+        <appender-ref ref="userAppender"/>
+    </logger>
+
+</configuration>

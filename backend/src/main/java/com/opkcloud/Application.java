@@ -1,5 +1,6 @@
 package com.opkcloud;
 
+import com.opkcloud.util.NetUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +10,6 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.spring.web.SpringfoxWebMvcConfiguration;
-
 import java.text.MessageFormat;
 
 /**
@@ -31,7 +31,7 @@ public class Application implements WebMvcConfigurer {
     	// 启动嵌入式的 Tomcat 并初始化 Spring 环境及其各 Spring 组件
         ConfigurableApplicationContext application = SpringApplication.run(Application.class, args);
         ConfigurableEnvironment env = application.getEnvironment();
-        String ip = "";
+        String ip = NetUtil.getIpAddress();
         String port = env.getProperty("server.port");
         String path = env.getProperty("server.servlet.context-path");
         String websocketPort = env.getProperty("websocket.port");
