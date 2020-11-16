@@ -51,7 +51,7 @@ public interface UserMapper extends BaseMapper<User> {
     /**
      * 查询所有
      */
-//    @Select("SELECT id,name,age FROM t_user")     
+    @Select("SELECT id,name,age FROM t_user")
     List<User> findAll();
 
     @Select("SELECT name FROM t_user where id = #{id}")

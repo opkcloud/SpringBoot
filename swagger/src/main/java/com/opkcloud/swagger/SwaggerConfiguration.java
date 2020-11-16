@@ -26,11 +26,11 @@ public class SwaggerConfiguration {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("")
-                .description("")
+                .title("Template 接口文档系统")
+                .description("Template 接口文档系统")
                 .termsOfServiceUrl("")
                 .contact("")
-                .version("")
+                .version("1.0.0")
                 .build();
     }
 

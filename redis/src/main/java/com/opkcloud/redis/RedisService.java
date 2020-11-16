@@ -6,6 +6,7 @@ import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import java.util.HashMap;
 import java.util.function.BiFunction;
@@ -93,6 +94,17 @@ public class RedisService implements IRedisService {
         return execute(((connection, serializer) -> {
             return connection.set(serializer.serialize(key), serializer.serialize(value));
         }));
+    }
+
+    @Override
+    public void del(String... key) {
+        if (key != null && key.length > 0) {
+            if (key.length == 1) {
+                redisTemplate.delete(key[0]);
+            } else {
+                redisTemplate.delete(CollectionUtils.arrayToList(key));
+            }
+        }
     }
 
     private <T> T execute(final BiFunction<RedisConnection, RedisSerializer<String>, T> callback) {
